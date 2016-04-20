@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body>
+	<form action="http://picupload.service.weibo.com/interface/pic_upload.php?s=rdxt&app=miniblog&cb=http://photo.weibo.com/upload/simple_upload/pic/1" name="commUploadForm1" method="POST" enctype="multipart/form-data" hidden id="form">
+		<input name="pic1" size="41" class="ipt_fl" type="file" onchange="javascript:document.querySelector('#form').submit()" id="file" accept="image/*">
+		<button>上传文件</button>
+	</form>
+	<button style="width:280px;height:130px;" onclick="javascript:document.querySelector('#file').click()">选择文件并上传</button>
+</body>
+</html>
