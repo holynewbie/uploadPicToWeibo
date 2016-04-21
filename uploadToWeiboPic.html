@@ -1,11 +1,84 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
+	<title>叫什么名字都不重要</title>
+	<style type="text/css">
+		.btn {
+		    display: inline-block;
+		    padding: 6px 12px;
+		    margin-bottom: 0;
+		    font-size: 14px;
+		    font-weight: normal;
+		    line-height: 1.428571429;
+		    text-align: center;
+		    white-space: nowrap;
+		    vertical-align: middle;
+		    cursor: pointer;
+		    background-image: none;
+		    border: 1px solid transparent;
+		    border-radius: 4px;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    -o-user-select: none;
+		    user-select: none;
+		}
+		.btn-lg{
+			padding: 10px 16px;
+			font-size: 18px;
+			line-height: 1.33;
+			border-radius: 6px;
+		}
+		.btn-success {
+		    color: #fff;
+		    background-color: #5cb85c;
+		    border-color: #4cae4c;
+		}
+		.btn-danger {
+		    color: #fff;
+		    background-color: #d9534f;
+		    border-color: #d43f3a;
+		}
+		.center{
+			width:280px;
+			height:130px;
+			position: absolute;
+			top:50%;left:50%;
+			margin-top: -65px;
+			margin-left: -140px;
+			font-size: 26px;
+			border-radius: 10px;
+		}
+	</style>
+</head>
 <body>
 	<form action="http://picupload.service.weibo.com/interface/pic_upload.php?s=rdxt&app=miniblog&cb=http://photo.weibo.com/upload/simple_upload/pic/1" name="commUploadForm1" method="POST" enctype="multipart/form-data" hidden id="form">
-		<input name="pic1" size="41" class="ipt_fl" type="file" onchange="javascript:document.querySelector('#form').submit()" id="file" accept="image/*">
-		<button>上传文件</button>
+		<input name="pic1" size="41" class="ipt_fl" type="file" id="file" accept="image/*">
 	</form>
-	<button style="width:280px;height:130px;" onclick="javascript:document.querySelector('#file').click()">选择文件并上传</button>
+	<button id="chose" class="btn btn-lg btn-success center">选择文件并上传</button>
+	<script type="text/javascript">
+		var chose = document.querySelector('#chose');
+		var timer = 0,mod = 0,s;
+		document.querySelector('#file').addEventListener('change',function(){
+			document.querySelector('#form').submit();
+			chose.classList.add('btn-danger');
+			chose.classList.remove('btn-success');
+			setInterval(function(){
+				mod = timer ++;
+				if(mod==0){
+					s = '.';
+				}else if(mod==1){
+					s = '..';
+				}else{
+					s = '...';
+				}
+				chose.innerHTML='文件上传中'+s;
+			},200);
+		});
+		chose.addEventListener('click',function(){
+			document.querySelector('#file').click();
+		});
+	</script>
 </body>
 </html>
