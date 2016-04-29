@@ -1,84 +1,48 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
-	<title>叫什么名字都不重要</title>
-	<style type="text/css">
-		.btn {
-		    display: inline-block;
-		    padding: 6px 12px;
-		    margin-bottom: 0;
-		    font-size: 14px;
-		    font-weight: normal;
-		    line-height: 1.428571429;
-		    text-align: center;
-		    white-space: nowrap;
-		    vertical-align: middle;
-		    cursor: pointer;
-		    background-image: none;
-		    border: 1px solid transparent;
-		    border-radius: 4px;
-		    -webkit-user-select: none;
-		    -moz-user-select: none;
-		    -ms-user-select: none;
-		    -o-user-select: none;
-		    user-select: none;
-		}
-		.btn-lg{
-			padding: 10px 16px;
-			font-size: 18px;
-			line-height: 1.33;
-			border-radius: 6px;
-		}
-		.btn-success {
-		    color: #fff;
-		    background-color: #5cb85c;
-		    border-color: #4cae4c;
-		}
-		.btn-danger {
-		    color: #fff;
-		    background-color: #d9534f;
-		    border-color: #d43f3a;
-		}
-		.center{
-			width:280px;
-			height:130px;
-			position: absolute;
-			top:50%;left:50%;
-			margin-top: -65px;
-			margin-left: -140px;
-			font-size: 26px;
-			border-radius: 10px;
-		}
-	</style>
+	<title>上传图片到微博</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
-	<form action="http://picupload.service.weibo.com/interface/pic_upload.php?s=rdxt&app=miniblog&cb=http://photo.weibo.com/upload/simple_upload/pic/1" name="commUploadForm1" method="POST" enctype="multipart/form-data" hidden id="form">
-		<input name="pic1" size="41" class="ipt_fl" type="file" id="file" accept="image/*">
-	</form>
-	<button id="chose" class="btn btn-lg btn-success center">选择文件并上传</button>
-	<script type="text/javascript">
-		var chose = document.querySelector('#chose');
-		var timer = 0,mod = 0,s;
-		document.querySelector('#file').addEventListener('change',function(){
-			document.querySelector('#form').submit();
-			chose.classList.add('btn-danger');
-			chose.classList.remove('btn-success');
-			setInterval(function(){
-				mod = timer ++;
-				if(mod==0){
-					s = '.';
-				}else if(mod==1){
-					s = '..';
-				}else{
-					s = '...';
-				}
-				chose.innerHTML='文件上传中'+s;
-			},200);
-		});
-		chose.addEventListener('click',function(){
-			document.querySelector('#file').click();
-		});
-	</script>
+<form action="http://picupload.service.weibo.com/interface/pic_upload.php?s=rdxt&amp;app=miniblog&amp;cb=http://photo.weibo.com/upload/simple_upload/pic/1" name="commUploadForm1" method="POST" enctype="multipart/form-data" id="form" style="display: none">
+	<input name="pic1" size="41" class="ipt_fl" id="file" accept="image/*" type="file">
+</form>
+<div class="container" style="margin-top: 150px;">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+	      	<div class="input-group">
+	          	<span class="input-group-btn">
+	            	<button class="btn btn-default" type="button">
+	                  	<span class="glyphicon glyphicon-file"/></span>
+	             	</button>
+	          	</span>
+		        <input type="text" class="form-control" placeholder="没有选择文件">
+		        <span class="input-group-btn">
+		          <button class="btn btn-primary" type="button">
+		            <span class="glyphicon glyphicon-upload"/></span>
+		          上传</button>
+		        </span>
+	      	</div>
+	    </div>
+	</div>
+</div>
+<script type="text/javascript">
+	var choseFile1 = document.querySelector('.btn.btn-default');
+	var choseFile2 = document.querySelector('input[type="text"]');
+	var file = document.querySelector('input[type="file"]');
+	var upload = document.querySelector('.btn.btn-primary');
+	var form = document.querySelector('form');
+	choseFile2.onclick = choseFile1.onclick = function() {
+		file.click();
+	};
+	upload.onclick = function(){
+		form.submit();
+	};
+	file.onchange=function(){
+		choseFile2.value=file.files[0].name;
+	}
+</script>
 </body>
 </html>
