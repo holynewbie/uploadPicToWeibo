@@ -12,6 +12,8 @@
 
 ##使用效果
 
-![首页](http://ww4.sinaimg.cn/mw690/7156d016jw1f342hb0bulj212e0mujsh.jpg)
+![首页](http://ww4.sinaimg.cn/large/87c9773cjw1f3dxqnr66oj21170hf752.jpg)
 
-![上传中](http://ww4.sinaimg.cn/mw690/7156d016jw1f342mhdradj210l0mpgmj.jpg)
+![上传一张](http://ww4.sinaimg.cn/large/87c9773cjw1f3dxr75lwxj214l0hp77x.jpg)
+
+![上传多张](http://ww4.sinaimg.cn/large/87c9773cjw1f3dxrp3jrmj214l0lzdlx.jpg)
