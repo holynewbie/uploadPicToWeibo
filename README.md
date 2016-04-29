@@ -8,7 +8,6 @@
 * Firefox + Greasemonkey
 * 浏览器打开[下载脚本](https://holynewbie.github.io/uploadPicToWeibo/uploadPicToWeibo.user.js) ，允许安装。
 * 将http://photo.weibo.com/upload/index 设为书签页（以后每次上传图片，以该页为入口），并在该页面上启用脚本
-	* 图片上传完成后会将图片链接以BBcode的方式自动复制到系统粘贴板，直接在需要的地方粘贴即可
 
 ##使用效果
 
