@@ -61,3 +61,22 @@ var BinaryPost = BinaryPost || (function(GM_POST){
 		});
 	}
 })(GM_xmlhttpRequest);
+
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.naturalWidth ;
+    canvas.height = img.naturalHeight;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    var dataURL = canvas.toDataURL("image/jpg");
+    return dataURL;//.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+function dataURItoBlob(dataURI) {
+    var byteString = atob(dataURI.split(',')[1]);
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], { type: 'image/jpeg' });
+}
