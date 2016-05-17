@@ -54,6 +54,7 @@ var BinaryPost = BinaryPost || (function(GM_POST){
 				ontimeout: obj.onload,
 				timeout: obj.timeout || 2000,
 				onerror:obj.onload,
+				onprogress: obj.onprogress || function(){}
 			};
 			GM_POST(request);
 		});
