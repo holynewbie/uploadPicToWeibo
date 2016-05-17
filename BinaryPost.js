@@ -44,7 +44,6 @@ var BinaryPost = BinaryPost || (function(GM_POST){
 			if(obj.headers){ headers = obj.headers; }
 			headers["Content-Type"] = 'multipart/form-data; boundary=' + boundary;
 			headers["Content-Length"] = data.length
-			console.log('数据总长度:'+data.length);
 			var request = {
 				method: 'POST',
 				url: obj.url,
