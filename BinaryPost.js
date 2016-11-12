@@ -53,9 +53,10 @@ var BinaryPost = BinaryPost || (function(GM_POST){
 				onload: obj.onload,
 				ontimeout: obj.onload,
 				timeout: obj.timeout || 2000,
-				onerror:obj.onload,
+				onerror: obj.onerror || obj.onload,
 				onprogress: obj.onprogress || function(){}
 			};
+			console.log('start to post data');
 			GM_POST(request);
 		});
 	}
