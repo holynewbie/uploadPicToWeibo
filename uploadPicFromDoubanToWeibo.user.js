@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        uploadPicFromDoubanToWeibo
 // @description upload a douban poster to sina weibo
-// @version     0.0.1
+// @version     0.0.
 // @namespace   happycheng10@126.com
 // @include     *.doubanio.com/view/photo/raw/public/*
 // @require     https://raw.githubusercontent.com/holynewbie/uploadPicToWeibo/gh-pages/BinaryPost.js
@@ -65,7 +65,7 @@ function getButtons(src) {
 		var cate = ['缩略图', '预览图', '大图', '原图'];
 		var html = '<div class="row"><div class="col-md-3"><img class="img-thumbnail"src="http://ww4.sinaimg.cn/thumb180/'+src+'.jpg"></div><div class="col-md-6">';
 		cateName.forEach(function(c,i){
-			html += '<div class="form-group"><div class="input-group"><input type="text" class="form-control" value="http://ww4.sinaimg.cn/'+c+'/'+src+'.jpg"><span class="input-group-btn"><button class="btn btn-primary" onclick="copyPic(this);close_window();">点我复制'+cate[i]+'</button></span></div></div>';
+			html += '<div class="form-group"><div class="input-group"><input type="text" class="form-control" value="http://pt.hit.edu.cn/'+c+'/'+src+'.jpg"><span class="input-group-btn"><button class="btn btn-primary" onclick="copyPic(this);close_window();">点我复制'+cate[i]+'</button></span></div></div>';
 		});
 		html += '</div></div><hr/>';
 		return html;
