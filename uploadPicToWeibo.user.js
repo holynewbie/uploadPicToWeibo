@@ -37,19 +37,22 @@ var src = 'http://holynewbie.github.io/uploadPicToWeibo/uploadToWeiboPic.html';
     document.head.appendChild(link);
 })();
 
-exportFunction(function (ret) {
+function commonUploadComplete(ret) {
   document.querySelector('#fuckweibo').setAttribute('src', src);
   var container = document.querySelector('.mycontainer');
   container.insertBefore(getButtons(ret.pid), container.firstElementChild);
-}, unsafeWindow, {defineAs: "commonUploadComplete"});
+}
+
+exportFunction(commonUploadComplete, unsafeWindow, {defineAs: "commonUploadComplete"});
 
 exportFunction(function(button){
-  var input = button.parentElement.previousSibling;
+  var input = button.parentNode.previousElementSibling;
   input.select();
   document.execCommand('copy');
 }, unsafeWindow, {defineAs:'copyPic'});
 
-exportFunction(function(src) {
+
+function getButtons(src) {
   var cateName=['thumb180', 'mw690', 'mw1024', 'large'];
   var cate = ['缩略图', '预览图', '大图', '原图'];
   var template = document.createElement('template');
@@ -76,4 +79,6 @@ exportFunction(function(src) {
 
   template.innerHTML = html;
   return document.importNode(template.content, true);
-}, unsafeWindow, {defineAs:'getButtons'});
+}
+
+exportFunction(getButtons, unsafeWindow, {defineAs:'getButtons'});
