@@ -68,7 +68,7 @@ function getButtons(src) {
     html += `
       <div class="form-group">
         <div class="input-group">
-          <input type="text" class="form-control" value="http://ws3.sinaimg.cn/${c}/${src}.jpg"/>
+          <input type="text" class="form-control" value="//ws3.sinaimg.cn/${c}/${src}.jpg"/>
           <span class="input-group-btn">
             <button class="btn btn-primary" onclick="copyPic(this)">点我复制${cate[i]}</button>
           </span>
